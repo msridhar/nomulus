@@ -31,7 +31,7 @@ buildscript {
 plugins {
   // Java static analysis plugins. Keep versions consistent with
   // ./buildSrc/build.gradle
-  id 'nebula.lint' version '10.4.2'
+//  id 'nebula.lint' version '10.4.2'
   // TODO(weiminyu): consider remove net.ltgt.apt. Gradle 5.2+
   //  has similar functionalities.
   id 'net.ltgt.apt' version '0.19' apply false
@@ -52,28 +52,28 @@ wrapper {
   distributionType = Wrapper.DistributionType.ALL
 }
 
-apply plugin: google.registry.gradle.plugin.ReportUploaderPlugin
+// apply plugin: google.registry.gradle.plugin.ReportUploaderPlugin
 
-reportUploader {
-  // Set the location where we want to upload the build results.
-  // e.g. -P uploaderDestination=gcs://domain-registry-alpha-build-result-test
-  //
-  // If not set - the upload will be skipped
-  destination = uploaderDestination
+// reportUploader {
+//   // Set the location where we want to upload the build results.
+//   // e.g. -P uploaderDestination=gcs://domain-registry-alpha-build-result-test
+//   //
+//   // If not set - the upload will be skipped
+//   destination = uploaderDestination
 
-  // The location of the file containing the OAuth2 Google Cloud credentials.
-  //
-  // The file can contain a Service Account key file in JSON format from the
-  // Google Developers Console or a stored user credential using the format
-  // supported by the Cloud SDK.
-  //
-  // If no file is given - the default credentials are used.
-  credentialsFile = uploaderCredentialsFile
+//   // The location of the file containing the OAuth2 Google Cloud credentials.
+//   //
+//   // The file can contain a Service Account key file in JSON format from the
+//   // Google Developers Console or a stored user credential using the format
+//   // supported by the Cloud SDK.
+//   //
+//   // If no file is given - the default credentials are used.
+//   credentialsFile = uploaderCredentialsFile
 
-  // If set to 'yes', each file will be uploaded to GCS in a separate thread.
-  // This is MUCH faster.
-  multithreadedUpload = uploaderMultithreadedUpload
-}
+//   // If set to 'yes', each file will be uploaded to GCS in a separate thread.
+//   // This is MUCH faster.
+//   multithreadedUpload = uploaderMultithreadedUpload
+// }
 
 apply from: 'dependencies.gradle'
 
@@ -98,7 +98,7 @@ if (!project.hasProperty('showAllOutput')) {
 }
 
 // Only do linting if the build is successful.
-gradleLint.autoLintAfterFailure = false
+//gradleLint.autoLintAfterFailure = false
 
 // Paths to main and test sources.
 ext.projectRootDir = "${rootDir}"

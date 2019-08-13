@@ -23,7 +23,7 @@ buildscript {
 
 plugins {
   // Java static analysis plugins. Keep versions consistent with ../build.gradle
-  id 'nebula.lint' version '10.4.2'
+//  id 'nebula.lint' version '10.4.2'
   // Config helper for annotation processors such as AutoValue and Dagger.
   // Ensures that source code is generated at an appropriate location.
   id 'net.ltgt.apt' version '0.19' apply false
