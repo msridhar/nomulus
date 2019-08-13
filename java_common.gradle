@@ -15,7 +15,6 @@
 apply plugin: 'java'
 apply plugin: 'nebula.lint'
 apply plugin: 'net.ltgt.apt'
-apply plugin: 'net.ltgt.errorprone'
 apply plugin: 'checkstyle'
 apply plugin: 'jacoco'
 
@@ -28,29 +27,12 @@ tasks.test.dependsOn tasks.checkstyleTest
 // TODO(weiminyu): investigate incremental coverage change calculation and alert.
 tasks.test.finalizedBy jacocoTestReport
 
-dependencies {
-    // compatibility with Java 8
-    errorproneJavac("com.google.errorprone:javac:9+181-r4173-1")
-    errorprone("com.google.errorprone:error_prone_core:2.3.3")
-}
-
 tasks.withType(JavaCompile).configureEach {
     // The -Werror flag causes Intellij to fail on deprecated api use.
     // Allow IDE user to turn off this flag by specifying a Gradle VM
     // option from inside the IDE.
     if (System.getProperty('no_werror') != 'true') {
         options.compilerArgs << "-Werror"
-    }
-    options.errorprone.disableWarningsInGeneratedCode = true
-    options.errorprone.errorproneArgumentProviders.add([
-            asArguments: {
-                return ['-XepExcludedPaths:.*/build/generated/.*']
-            }] as CommandLineArgumentProvider)
-    // Disable features currently incompatible with Java 12
-    if ((JavaVersion.current().majorVersion as Integer) > 11) {
-      // This check is broken in Java 12.
-      // See https://github.com/google/error-prone/issues/1257
-      options.errorprone.errorproneArgs=['-Xep:Finally:OFF']
     }
 }
 

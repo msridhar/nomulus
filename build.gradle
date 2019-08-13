@@ -22,7 +22,7 @@ buildscript {
 
   dependencies {
     classpath 'com.google.cloud.tools:appengine-gradle-plugin:2.0.1'
-    classpath "net.ltgt.gradle:gradle-errorprone-plugin:0.6.1"
+//    classpath "net.ltgt.gradle:gradle-errorprone-plugin:0.6.1"
     classpath 'org.sonatype.aether:aether-api:1.13.1'
     classpath 'org.sonatype.aether:aether-impl:1.13.1'
   }
@@ -35,7 +35,7 @@ plugins {
   // TODO(weiminyu): consider remove net.ltgt.apt. Gradle 5.2+
   //  has similar functionalities.
   id 'net.ltgt.apt' version '0.19' apply false
-  id 'net.ltgt.errorprone' version '0.6.1'
+//  id 'net.ltgt.errorprone' version '0.6.1'
   id 'checkstyle'
   id 'com.github.johnrengelman.shadow' version '5.0.0'
 
