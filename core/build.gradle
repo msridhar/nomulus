@@ -516,7 +516,7 @@ task compileProdJS(type: JavaExec) {
 
 compileJava.dependsOn jaxbToJava
 compileJava.dependsOn soyToJava
-compileJava.dependsOn compileProdJS
+//compileJava.dependsOn compileProdJS
 
 // stylesheetsToJavascript must happen after processResources, which wipes the
 // resources folder before copying data into it.
@@ -527,7 +527,7 @@ compileProdJS.dependsOn rootProject.npmInstall
 compileProdJS.dependsOn processResources
 compileProdJS.dependsOn processTestResources
 compileProdJS.dependsOn soyToJS
-assemble.dependsOn compileProdJS
+//assemble.dependsOn compileProdJS
 
 task karmaTest(type: Exec) {
   dependsOn ':npmInstall'
