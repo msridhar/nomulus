@@ -104,9 +104,9 @@ final class RdapDataStructures {
     @JsonableElement abstract ImmutableList<Link> links();
 
     abstract static class Builder<B extends Builder<?>> {
-      abstract B setTitle(String title);
-      abstract B setDescription(ImmutableList<String> description);
-      abstract B setDescription(String... description);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This B setTitle(String title);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This B setDescription(ImmutableList<String> description);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This B setDescription(String... description);
       abstract ImmutableList.Builder<Link> linksBuilder();
 
       @SuppressWarnings("unchecked")
@@ -251,8 +251,8 @@ final class RdapDataStructures {
 
 
     abstract static class Builder<B extends Builder<?>> {
-      abstract B setEventAction(EventAction eventAction);
-      abstract B setEventDate(DateTime eventDate);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This B setEventAction(EventAction eventAction);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This B setEventDate(DateTime eventDate);
       abstract ImmutableList.Builder<Link> linksBuilder();
 
       @SuppressWarnings("unchecked")

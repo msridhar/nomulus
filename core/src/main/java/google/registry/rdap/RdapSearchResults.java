@@ -90,7 +90,7 @@ abstract class RdapSearchResults {
 
     abstract static class Builder<B extends Builder<?>> {
       abstract ImmutableMap.Builder<String, URI> navigationLinksBuilder();
-      abstract B setIncompletenessWarningType(IncompletenessWarningType type);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This B setIncompletenessWarningType(IncompletenessWarningType type);
 
       @SuppressWarnings("unchecked")
       B setNextPageUri(URI uri) {
