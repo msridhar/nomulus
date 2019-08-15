@@ -284,7 +284,7 @@ public class RdapMetrics {
       abstract Builder setIncompletenessWarningType(
           IncompletenessWarningType incompletenessWarningType);
 
-      abstract Builder setNumDomainsRetrieved(long numDomainsRetrieved);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This Builder setNumDomainsRetrieved(long numDomainsRetrieved);
 
       abstract Builder setNumHostsRetrieved(long numHostsRetrieved);
 
