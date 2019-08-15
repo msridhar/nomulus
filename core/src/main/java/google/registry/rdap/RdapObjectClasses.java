@@ -494,7 +494,7 @@ final class RdapObjectClasses {
 
       abstract ImmutableList.Builder<DsData> dsDataBuilder();
 
-      Builder addDsData(DelegationSignerData dsData) {
+      @org.checkerframework.checker.returnsrcvr.qual.This Builder addDsData(DelegationSignerData dsData) {
         dsDataBuilder().add(DsData.create(dsData));
         return this;
       }

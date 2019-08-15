@@ -43,7 +43,7 @@ public interface Protocol {
   ImmutableList<Provider<? extends ChannelHandler>> handlerProviders();
 
   /** A builder for {@link FrontendProtocol}, by default there is a backend associated with it. */
-  static FrontendProtocol.Builder frontendBuilder() {
+  static FrontendProtocol.@org.checkerframework.checker.objectconstruction.qual.CalledMethods("hasBackend") Builder frontendBuilder() {
     return new AutoValue_Protocol_FrontendProtocol.Builder().hasBackend(true);
   }
 
@@ -59,11 +59,11 @@ public interface Protocol {
    */
   abstract class Builder<B extends Builder<B, P>, P extends Protocol> {
 
-    public abstract B name(String value);
+    public abstract @org.checkerframework.checker.returnsrcvr.qual.This B name(String value);
 
-    public abstract B port(int port);
+    public abstract @org.checkerframework.checker.returnsrcvr.qual.This B port(int port);
 
-    public abstract B handlerProviders(ImmutableList<Provider<? extends ChannelHandler>> value);
+    public abstract @org.checkerframework.checker.returnsrcvr.qual.This B handlerProviders(ImmutableList<Provider<? extends ChannelHandler>> value);
 
     public abstract P build();
   }
