@@ -165,6 +165,7 @@ public abstract class RdapActionBase implements Runnable {
     rdapMetrics.updateMetrics(metricInformationBuilder.build());
   }
 
+  @org.checkerframework.checker.objectconstruction.qual.EnsuresCalledMethods(value = "this.metricInformationBuilder", methods = {"setStatusCode"})
   void setError(int status, String title, String description) {
     metricInformationBuilder.setStatusCode(status);
     response.setStatus(status);
