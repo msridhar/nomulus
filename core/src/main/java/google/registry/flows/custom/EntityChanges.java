@@ -27,7 +27,7 @@ public abstract class EntityChanges {
 
   public abstract ImmutableSet<Key<ImmutableObject>> getDeletes();
 
-  public static Builder newBuilder() {
+  public static @org.checkerframework.checker.objectconstruction.qual.CalledMethods({"setSaves", "setDeletes"}) Builder newBuilder() {
     // Default both entities to save and entities to delete to empty sets, so that the build()
     // method won't subsequently throw an exception if one doesn't end up being applicable.
     return new AutoValue_EntityChanges.Builder()

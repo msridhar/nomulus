@@ -236,16 +236,16 @@ final class RdapObjectClasses {
 
 
     abstract static class Builder<B extends Builder<?>> {
-      abstract B setHandle(String handle);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This B setHandle(String handle);
       abstract ImmutableList.Builder<PublicId> publicIdsBuilder();
       abstract ImmutableList.Builder<RdapEntity> entitiesBuilder();
       abstract ImmutableList.Builder<RdapStatus> statusBuilder();
       abstract ImmutableList.Builder<Remark> remarksBuilder();
       abstract ImmutableList.Builder<Link> linksBuilder();
-      abstract B setPort43(Port43WhoisServer port43);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This B setPort43(Port43WhoisServer port43);
       abstract ImmutableList.Builder<Event> eventsBuilder();
 
-      abstract B setLastUpdateOfRdapDatabaseEvent(Event event);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This B setLastUpdateOfRdapDatabaseEvent(Event event);
     }
   }
 
@@ -297,7 +297,7 @@ final class RdapObjectClasses {
     @JsonableElement abstract ImmutableList<EventWithoutActor> asEventActor();
 
     private abstract static class Builder<B extends Builder<B>> extends RdapObjectBase.Builder<B> {
-      abstract B setVcardArray(VcardArray vcardArray);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This B setVcardArray(VcardArray vcardArray);
 
       abstract ImmutableSet.Builder<Role> rolesBuilder();
 
@@ -377,7 +377,7 @@ final class RdapObjectClasses {
     }
 
     abstract static class Builder<B extends Builder<?>> extends RdapObjectBase.Builder<B> {
-      abstract B setLdhName(String ldhName);
+      abstract @org.checkerframework.checker.returnsrcvr.qual.This B setLdhName(String ldhName);
     }
 
     RdapNamedObjectBase(BoilerplateType boilerplateType, ObjectClassName objectClassName) {
