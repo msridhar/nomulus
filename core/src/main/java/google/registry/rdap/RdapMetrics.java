@@ -293,7 +293,7 @@ public class RdapMetrics {
       abstract RdapMetricInformation build();
     }
 
-    static Builder builder() {
+    static @org.checkerframework.checker.objectconstruction.qual.CalledMethods({ "setIncompletenessWarningType", "setPrefixLength", "setRegistrarSpecified", "setSearchType", "setWildcardType"}) Builder builder() {
       return new AutoValue_RdapMetrics_RdapMetricInformation.Builder()
           .setSearchType(SearchType.NONE)
           .setWildcardType(WildcardType.INVALID)
