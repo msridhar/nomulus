@@ -80,7 +80,7 @@ public class CheckApiAction implements Runnable {
 
   @Inject Response response;
   @Inject Clock clock;
-  @Inject CheckApiMetric.Builder metricBuilder;
+  @Inject CheckApiMetric.@org.checkerframework.checker.objectconstruction.qual.CalledMethods("startTimestamp") Builder metricBuilder;
   @Inject CheckApiMetrics checkApiMetrics;
 
   @Inject
@@ -101,6 +101,7 @@ public class CheckApiAction implements Runnable {
     }
   }
 
+    @org.checkerframework.checker.objectconstruction.qual.EnsuresCalledMethods(value = "this.metricBuilder", methods = "status")
   private Map<String, Object> doCheck() {
     String domainString;
     InternetDomainName domainName;

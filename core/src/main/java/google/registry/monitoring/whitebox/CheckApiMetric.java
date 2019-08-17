@@ -86,7 +86,7 @@ public abstract class CheckApiMetric {
 
   public abstract Optional<Availability> availability();
 
-  public static Builder builder(Clock clock) {
+    public static @org.checkerframework.checker.objectconstruction.qual.CalledMethods("startTimestamp") Builder builder(Clock clock) {
     return new AutoValue_CheckApiMetric.Builder().startTimestamp(clock.nowUtc()).setClock(clock);
   }
 
@@ -105,7 +105,7 @@ public abstract class CheckApiMetric {
       return this;
     }
 
-    public CheckApiMetric build() {
+      public CheckApiMetric build(@org.checkerframework.checker.objectconstruction.qual.CalledMethods({"startTimestamp","status"}) Builder this) {
       return this.endTimestamp(clock.nowUtc()).autoBuild();
     }
 

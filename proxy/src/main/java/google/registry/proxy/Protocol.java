@@ -65,7 +65,7 @@ public interface Protocol {
 
     public abstract @org.checkerframework.checker.returnsrcvr.qual.This B handlerProviders(ImmutableList<Provider<? extends ChannelHandler>> value);
 
-    public abstract P build();
+      //public abstract P build();
   }
 
   /**
@@ -98,8 +98,7 @@ public interface Protocol {
 
       abstract FrontendProtocol autoBuild();
 
-      @Override
-      public FrontendProtocol build() {
+      public FrontendProtocol build(@org.checkerframework.checker.objectconstruction.qual.CalledMethods({"name","hasBackend","handlerProviders","port"}) Builder this) {
         FrontendProtocol frontendProtocol = autoBuild();
         Preconditions.checkState(
             !frontendProtocol.hasBackend() || frontendProtocol.relayProtocol() != null,
@@ -125,6 +124,9 @@ public interface Protocol {
     @AutoValue.Builder
     public abstract static class Builder extends Protocol.Builder<Builder, BackendProtocol> {
       public abstract Builder host(String value);
+
+        public abstract BackendProtocol build();
+        
     }
   }
 }

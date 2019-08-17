@@ -265,7 +265,7 @@ public abstract class ProbingAction implements Callable<ChannelFuture> {
 
     abstract ProbingAction autoBuild();
 
-    public ProbingAction build() {
+      public ProbingAction build(@org.checkerframework.checker.objectconstruction.qual.CalledMethods({"setProtocol","setHost","setDelay","setOutboundMessage"}) Builder this) {
       // Sets SocketAddress to bind to.
       SocketAddress address;
       try {
