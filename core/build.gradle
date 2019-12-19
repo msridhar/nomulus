@@ -116,6 +116,10 @@ configurations {
     exclude group: 'javax.servlet', module: 'javax.servlet-api'
     // Jetty's servlet-api:2.5 implementation, pulled in by other Jetty jars
     exclude group: 'org.mortbay.jetty', module: 'servlet-api'
+    resolutionStrategy {
+      force 'com.google.guava:guava:27.1-jre'
+
+    }
   }
 }
 
