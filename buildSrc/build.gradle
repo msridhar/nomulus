@@ -29,6 +29,7 @@ plugins {
   id 'net.ltgt.apt' version '0.19' apply false
   id 'checkstyle'
   id 'com.diffplug.gradle.spotless' version '3.18.0'
+  id 'org.checkerframework' version '0.4.10'
 }
 
 if (rootProject.enableDependencyLocking.toBoolean()) {
@@ -40,8 +41,12 @@ if (rootProject.enableDependencyLocking.toBoolean()) {
 
 repositories {
   if (project.ext.properties.mavenUrl == null) {
-    println "Plugin dependencies: Using Maven central..."
+    //println "Plugin dependencies: Using Maven central..."
     mavenCentral()
+    maven {
+      url 'https://plugins.gradle.org/m2/'
+    }
+    mavenLocal()
   } else {
     maven {
       println "Plugin dependencies: Using repo ${mavenUrl}..."

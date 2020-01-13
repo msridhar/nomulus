@@ -17,6 +17,7 @@ apply plugin: 'java'
 apply plugin: 'net.ltgt.apt'
 apply plugin: 'checkstyle'
 apply plugin: 'jacoco'
+apply plugin: 'org.checkerframework'
 
 // Checkstyle should run as part of the testing task
 tasks.test.dependsOn tasks.checkstyleMain
@@ -32,7 +33,7 @@ tasks.withType(JavaCompile).configureEach {
     // Allow IDE user to turn off this flag by specifying a Gradle VM
     // option from inside the IDE.
     if (System.getProperty('no_werror') != 'true') {
-        options.compilerArgs << "-Werror"
+        //options.compilerArgs << "-Werror"
     }
 }
 
@@ -104,4 +105,26 @@ jacocoTestCoverageVerification {
       }
     }
   }
+}
+
+// checker framework
+// To use a locally-built Checker Framework, run gradle with "-PcfLocal".
+if (project.hasProperty("cfLocal")) {
+  def cfHome = String.valueOf(System.getenv("CHECKERFRAMEWORK"))
+  dependencies {
+    compileOnly files(cfHome + "/checker/dist/checker-qual.jar")
+    testCompileOnly files(cfHome + "/checker/dist/checker-qual.jar")
+    checkerFramework files(cfHome + "/checker/dist/checker.jar")
+    checkerFrameworkAnnotatedJDK files(cfHome + "/checker/dist/jdk8.jar")
+  }
+}
+
+checkerFramework {
+    skipVersionCheck = true
+    checkers = ['org.checkerframework.checker.objectconstruction.ObjectConstructionChecker']
+    extraJavacArgs = ['-AsuppressWarnings=type.anno.before', '-Awarns']
+}
+dependencies {
+    checkerFramework 'net.sridharan.objectconstruction:object-construction-checker:0.1.7-SNAPSHOT'
+    implementation 'net.sridharan.objectconstruction:object-construction-qual:0.1.7-SNAPSHOT'
 }
