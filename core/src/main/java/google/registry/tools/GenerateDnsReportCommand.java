@@ -102,7 +102,7 @@ final class GenerateDnsReportCommand implements CommandWithRemoteApi {
               .stream()
               .map(
                   dsData1 ->
-                      ImmutableMap.<String, Object>of(
+                      ImmutableMap.of(
                           "keyTag", dsData1.getKeyTag(),
                           "algorithm", dsData1.getAlgorithm(),
                           "digestType", dsData1.getDigestType(),

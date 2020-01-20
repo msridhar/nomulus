@@ -65,7 +65,7 @@ public final class NameserversParameter extends ParameterConverterValidator<Set<
     if (!matcher.matches()) {
       checkArgument(
           !ns.contains("[") && !ns.contains("]"), "Could not parse square brackets in %s", ns);
-      return ImmutableList.<@org.checkerframework.checker.objectconstruction.qual.CalledMethodsTop String>of(ns).stream();
+      return ImmutableList.of(ns).stream();
     }
 
     ImmutableList.Builder<String> nameservers = new ImmutableList.Builder<>();

@@ -367,7 +367,7 @@ public class DomainBase extends EppResource
         builder.setGracePeriods(ImmutableSet.of());
       }
       // Set all remaining transfer properties.
-      setAutomaticTransferSuccessProperties(builder, transferData);
+      setAutomaticTransferSuccessProperties((@org.checkerframework.checker.objectconstruction.qual.CalledMethodsTop Builder) builder, transferData);
       builder
           .setLastEppUpdateTime(transferExpirationTime)
           .setLastEppUpdateClientId(transferData.getGainingClientId());
