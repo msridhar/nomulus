@@ -110,9 +110,10 @@ final class RdapDataStructures {
       abstract ImmutableList.Builder<Link> linksBuilder();
 
       @SuppressWarnings("unchecked")
+      @org.checkerframework.checker.returnsrcvr.qual.This
       B addLink(Link link) {
         linksBuilder().add(link);
-        return (B) this;
+        return (@org.checkerframework.checker.returnsrcvr.qual.This B) this;
       }
     }
   }
